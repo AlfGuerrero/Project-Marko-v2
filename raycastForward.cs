@@ -1,3 +1,8 @@
+/*
+Alfrancis Guerrero - 09/20/16
+Add this class to what you want to measure your intial object. AKA The users position. 
+*/
+
 using UnityEngine;
 using System.Collections;
 
