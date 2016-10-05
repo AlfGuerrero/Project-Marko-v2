@@ -3,6 +3,10 @@
 //#include "Timer.h"
 #include "Arduino.h"
 
+//Bluetooth Integration
+const int BUFFER = 4;
+int mRead[BUFFER] = {};
+
 float startTime;
 float i;
 int DUR = 4000;
@@ -15,6 +19,20 @@ void setupPWM16() {
     TCCR1B = _BV(WGM13) | _BV(WGM12)
         | _BV(CS10);                    /* no prescaling */
     ICR1 = 0xffff;                      /* TOP counter value */
+}
+
+// Bluetooth Serial Communication Reading function
+void BluetoothRead()
+{
+    
+  if (Serial.read() == '255')
+  {
+    for (i = 0; i < BUFFER; i++)
+    {
+       mRead[BUFFER] = Serial.read();
+    }
+  }
+    
 }
 
 /* 16-bit version of analogWrite(). Works only on pins 9 and 10. */
