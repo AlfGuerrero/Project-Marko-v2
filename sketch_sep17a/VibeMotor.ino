@@ -34,12 +34,12 @@ class VibeMotor
     }
     else if((vibState == 0) && (currentMillis - previousMillis >= OffTime))
     {
-      ledState = 255;
+      vibState = 255;
       previousMillis = currentMillis;
       analogWrite(vibPin, vibState);
     }
     
   }
   
-}
+};
 

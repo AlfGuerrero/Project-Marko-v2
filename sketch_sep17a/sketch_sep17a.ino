@@ -1,3 +1,6 @@
+#include <SparkFun_Tlc5940.h>
+
+
 /// Using Arduino Genuino
 /// Inital set up using analog PIN 0, didital pins marked with ~ can also be used
 //#include "Timer.h"
@@ -45,6 +48,7 @@ void analogWrite16(uint8_t pin, uint16_t val)
 }
 
 void setup() {
+  Tlc.init();
   Serial.begin(9600);
   pinMode(A0,OUTPUT);
   pinMode(A1,OUTPUT);
