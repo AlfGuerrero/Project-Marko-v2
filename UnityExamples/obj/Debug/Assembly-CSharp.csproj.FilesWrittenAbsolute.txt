@@ -1,0 +1,17 @@
+/Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/UnityExamples/Temp/bin/Debug/UnityEngine.dll
+/Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/UnityExamples/Temp/bin/Debug/UnityEditor.dll
+/Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/UnityExamples/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/UnityExamples/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/UnityExamples/Temp/bin/Debug/Mono.Cecil.dll
+/Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/UnityExamples/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/UnityExamples/Temp/bin/Debug/Unity.DataContract.dll
+/Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/UnityExamples/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/UnityExamples/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/UnityExamples/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/UnityExamples/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/UnityExamples/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/UnityExamples/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/UnityExamples/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/UnityExamples/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/UnityExamples/obj/Debug/Assembly-CSharp.dll
+/Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/UnityExamples/obj/Debug/Assembly-CSharp.dll.mdb
