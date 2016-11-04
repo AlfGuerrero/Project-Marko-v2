@@ -125,6 +125,8 @@ public class AreaDescriptionPicker : MonoBehaviour, ITangoLifecycle
         {
             // Load up an existing Area Description.
             AreaDescription areaDescription = AreaDescription.ForUUID(m_curAreaDescriptionUUID);
+			//GameObject.Find ("TangoManager").GetComponent<MeshLoader> ().meshName = m_curAreaDescriptionUUID;
+
             m_guiController.m_curAreaDescription = areaDescription;
             m_tangoApplication.m_areaDescriptionLearningMode = m_enableLearningToggle.isOn;
         }
