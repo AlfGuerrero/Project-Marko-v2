@@ -23,7 +23,7 @@ public class rayCasting : MonoBehaviour {
 		for (int i = 0; i < 8; i++) {
 			//Quaternion rotation = Quaternion.AngleAxis (45.0f, transform.right);
 			Quaternion q = Quaternion.AngleAxis(45*i, Vector3.up);
-			Vector3  d = transform.forward *20;
+			Vector3  d = new Vector3(transform.forward.x,0.0f,transform.forward.z) *20;
 
 			Debug.DrawRay(transform.position, q*d, Color.green);
 			//m_cube = GameObject.FindGameObjectWithTag ("cubes");
