@@ -98,6 +98,7 @@ public class AreaDescriptionPicker : MonoBehaviour, ITangoLifecycle
     /// Description.</param>
     public void StartGame(bool isNewAreaDescription)
     {
+		
         // The game has to be started with an Area Description.
         if (!isNewAreaDescription)
         {
@@ -120,16 +121,26 @@ public class AreaDescriptionPicker : MonoBehaviour, ITangoLifecycle
             // Completely new area description.
             m_guiController.m_curAreaDescription = null;
             m_tangoApplication.m_areaDescriptionLearningMode = true;
+
         }
         else
         {
             // Load up an existing Area Description.
             AreaDescription areaDescription = AreaDescription.ForUUID(m_curAreaDescriptionUUID);
-			//GameObject.Find ("TangoManager").GetComponent<MeshLoader> ().meshName = m_curAreaDescriptionUUID;
+			//if (GameObject.FindGameObjectWithTag ("TangoManager").GetComponent<MeshLoader> ().meshName == "Nothing") {
+			GameObject.Find("Tango Manager").GetComponent<MeshLoader> ().meshName = areaDescription.GetMetadata().m_name;
+			//}
 
             m_guiController.m_curAreaDescription = areaDescription;
             m_tangoApplication.m_areaDescriptionLearningMode = m_enableLearningToggle.isOn;
+
+
+
+
         }
+
+
+
 
         m_tangoApplication.Startup(m_guiController.m_curAreaDescription);
 
@@ -137,6 +148,8 @@ public class AreaDescriptionPicker : MonoBehaviour, ITangoLifecycle
         m_poseController.gameObject.SetActive(true);
         m_guiController.enabled = true;
         m_gameControlPanel.SetActive(true);
+
+
     }
 
     /// <summary>
@@ -161,7 +174,8 @@ public class AreaDescriptionPicker : MonoBehaviour, ITangoLifecycle
     /// </summary>
     public void OnTangoServiceConnected()
     {
-    }
+		
+	}
     
     /// <summary>
     /// This is called when disconnected from the Tango service.
@@ -191,6 +205,8 @@ public class AreaDescriptionPicker : MonoBehaviour, ITangoLifecycle
         {
             Debug.Log("No Tango Manager found in scene.");
         }
+
+
     }
 
     /// <summary>
@@ -200,6 +216,7 @@ public class AreaDescriptionPicker : MonoBehaviour, ITangoLifecycle
     /// </summary>
     public void Update()
     {
+		
         if (Input.GetKey(KeyCode.Escape))
         {
             Application.Quit();
@@ -255,4 +272,8 @@ public class AreaDescriptionPicker : MonoBehaviour, ITangoLifecycle
             m_curAreaDescriptionUUID = item.m_uuid;
         }
     }
+
+	void onGUI(){
+		GUI.Label(new Rect(10, 10, 100, 20), m_guiController.m_curAreaDescription.GetMetadata ().m_name);
+	}
 }
