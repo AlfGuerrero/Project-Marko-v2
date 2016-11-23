@@ -5,6 +5,8 @@
 /// Inital set up using analog PIN 0, didital pins marked with ~ can also be used
 //#include "Timer.h"
 #include "Arduino.h"
+#include "VibeMotor.h"
+#include "MarkoSys.h"
 
 //Bluetooth Integration
 const int BUFFER = 4;
@@ -38,7 +40,7 @@ void BluetoothRead()
     
 }
 
-/* 16-bit version of analogWrite(). Works only on pins 9 and 10. */
+/* 16-bit version of analogWrite(). Works only on pins 9 and 10. 
 void analogWrite16(uint8_t pin, uint16_t val)
 {
     switch (pin) {
@@ -46,13 +48,17 @@ void analogWrite16(uint8_t pin, uint16_t val)
         case 10: OCR1B = val; break;
     }
 }
+*/
+
+MarkoSys systemManager(); //Top level manager of the vibration motors
 
 void setup() {
   Tlc.init();
   Serial.begin(9600);
-  pinMode(A0,OUTPUT);
-  pinMode(A1,OUTPUT);
-  pinMode(A2,OUTPUT);
+  //sytemManager MarkoSys();
+  //pinMode(A0,OUTPUT);
+  /*pinMode(0,OUTPUT);
+  pinMode(1,OUTPUT);
   pinMode(3,OUTPUT);
   pinMode(5,OUTPUT);
   pinMode(6,OUTPUT);
@@ -60,25 +66,30 @@ void setup() {
   pinMode(10,OUTPUT);
   pinMode(11,OUTPUT);
   i = 0.0;
-  startTime = -1;
+  startTime = -1;*/
 }
 
-void loop() {  //analogWriteResolution(8);
+void loop() 
+{  //analogWriteResolution(8);
+  
+  systemManager.Update();
+  
   // Switch case manually controlled for observing behaviour of Vibe Motor
-  switch(1){
+  /*switch(1){
     case 1: //Seemingly randomly modulates the vibration of the motor from medium intensity to off
       
       delay(15);
       i++;
-      analogWrite(A1,i);
+       
       Serial.println(i);
-      analogWrite(A2,1023);
-       analogWrite(3,255);
-       analogWrite(5,0);
-       analogWrite(6,0);
-       analogWrite(9,0);
-       analogWrite(10,0);
-       analogWrite(11,0);
+      analogWrite(0,i);
+      analogWrite(1,i);
+      analogWrite(3,i);
+      analogWrite(5,i);
+      analogWrite(6,i);
+      analogWrite(9,i);
+      analogWrite(10,i);
+      analogWrite(11,i);*/
       
       //delay(1000);
       //Serial.println( bezierIncrease(i/100));
@@ -123,7 +134,7 @@ void loop() {  //analogWriteResolution(8);
           mode = !mode;
         }
 
-      }*/
+      }
       if(i == 1024)
       {
         i = 0;
@@ -180,12 +191,12 @@ void loop() {  //analogWriteResolution(8);
         i = 0;
       }
       break;
-  }
+  }*/
 
 }
 
 
-
+/*
 float bezierIncrease (float t) {
     float y;
     int temp;
@@ -339,4 +350,4 @@ void powerMotor( int motorNumber)
   Serial.println(" ");
   
 }
-
+*/
