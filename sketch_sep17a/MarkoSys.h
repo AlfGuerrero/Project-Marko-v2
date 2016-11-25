@@ -9,7 +9,7 @@ class MarkoSys
   	MarkoSys();
   	void Update();
   private:
-  	VibeMotor motors[8];
+  	VibeMotor * motors;
 };
 
 #endif

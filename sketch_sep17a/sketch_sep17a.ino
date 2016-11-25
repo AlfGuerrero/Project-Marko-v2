@@ -50,7 +50,7 @@ void analogWrite16(uint8_t pin, uint16_t val)
 }
 */
 
-MarkoSys systemManager(); //Top level manager of the vibration motors
+MarkoSys systemManager; //Top level manager of the vibration motors
 
 void setup() {
   Tlc.init();

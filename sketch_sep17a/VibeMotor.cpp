@@ -9,7 +9,7 @@ VibeMotor::VibeMotor(int pin, long on, long off)
 	OnTime = on;
 	OffTime = off;
 
-	vibState = 0;
+	vibState = 255;
 	previousMillis = 0;
 }
 
