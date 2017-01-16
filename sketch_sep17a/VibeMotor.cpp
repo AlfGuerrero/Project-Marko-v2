@@ -1,5 +1,6 @@
 #include "Arduino.h"
 #include "VibeMotor.h"
+#include <SparkFun_Tlc5940.h>
 
 VibeMotor::VibeMotor(int pin, long on, long off)
 {

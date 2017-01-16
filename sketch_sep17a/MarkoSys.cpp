@@ -1,6 +1,7 @@
   #include "Arduino.h"
 #include "MarkoSys.h"
 #include "VibeMotor.h"
+#include <SparkFun_Tlc5940.h>
 
 MarkoSys::MarkoSys()
 {
@@ -14,6 +15,7 @@ MarkoSys::MarkoSys()
 
 void MarkoSys::Update()
 {
+  Tlc.clear();
   Serial.println("MarkoSys Update Function");
 	for(int i = 0; i < sizeof(motors) - 1; i++)
 	{
@@ -21,4 +23,5 @@ void MarkoSys::Update()
     Serial.println(i);
 		motors[i].Update();
 	}
+ Tlc.update();
 }
