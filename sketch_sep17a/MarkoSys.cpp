@@ -4,7 +4,7 @@
 
 MarkoSys::MarkoSys()
 {
-  motors = new VibeMotor[8] {{0, 0, 0},{1, 0, 0},{2, 0, 0},{3, 0, 0},{4, 0, 0},{5, 0, 0},{6, 0, 0},{7, 0, 0}};
+  motors = new VibeMotor[8] {{0, 0, 0},{1, 0, 0},{2, 0, 0},{3, 0, 0},{4, 0, 0},{5, 0, 0},{6, 0, 0},{15, 0, 0}};
     //motor(0, 0, 0);
     /*, new VibeMotor(1, 0, 0), 
                    new VibeMotor(3, 0, 0), new VibeMotor(5, 0, 0), 
