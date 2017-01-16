@@ -4,7 +4,7 @@
 
 MarkoSys::MarkoSys()
 {
-  motors = new VibeMotor[8] {{0, 0, 0},{1, 0, 0},{3, 0, 0},{5, 0, 0},{6, 0, 0},{9, 0, 0},{10, 0, 0},{11, 0, 0}};
+  motors = new VibeMotor[8] {{0, 0, 0},{1, 0, 0},{2, 0, 0},{3, 0, 0},{4, 0, 0},{5, 0, 0},{6, 0, 0},{7, 0, 0}};
     //motor(0, 0, 0);
     /*, new VibeMotor(1, 0, 0), 
                    new VibeMotor(3, 0, 0), new VibeMotor(5, 0, 0), 
@@ -17,7 +17,7 @@ void MarkoSys::Update()
   Serial.println("MarkoSys Update Function");
 	for(int i = 0; i < sizeof(motors) - 1; i++)
 	{
-    Serial.print("  For Vibe Motor ");
+    Serial.print("For Vibe Motor ");
     Serial.println(i);
 		motors[i].Update();
 	}

@@ -12,7 +12,7 @@ class VibeMotor
     int vibPin;
     long OnTime;
     long OffTime;
-    int vibState;
+    int vibVal;
     unsigned long previousMillis;
 };
 

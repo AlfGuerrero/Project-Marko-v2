@@ -1,4 +1,5 @@
 #include "Arduino.h"
+#include "SparkFun_Tlc5940.h"
 #include "VibeMotor.h"
 
 VibeMotor::VibeMotor(int pin, long on, long off)
@@ -9,13 +10,13 @@ VibeMotor::VibeMotor(int pin, long on, long off)
 	OnTime = on;
 	OffTime = off;
 
-	vibState = 255;
+	vibVal = 0;
 	previousMillis = 0;
 }
 
 void VibeMotor::Update()
 {
-	unsigned long currentMillis = millis();
+	/*unsigned long currentMillis = millis();
 
 	if((vibState == 255) && (currentMillis - previousMillis >= OnTime))
 	{
@@ -28,5 +29,10 @@ void VibeMotor::Update()
 		vibState = 255;
 		previousMillis = currentMillis;
 		analogWrite(vibPin, vibState);
-	}
+	}*/
+  Tlc.clear();
+  vibVal = map(vibVal, 0, 100, 0, 4095);// Assuming value sent from unity is between 0-100
+  Serial.println(vibVal);
+  Tlc.set(vibPin,vibVal);
+  Tlc.update();
 }
