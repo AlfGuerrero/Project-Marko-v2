@@ -80,7 +80,7 @@ void loop()
      }
   }
   
-  systemManager->Update();
+  systemManager->Update(fbArray);
   
 
 }

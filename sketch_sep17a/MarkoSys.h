@@ -7,7 +7,7 @@ class MarkoSys
 {
   public:
   	MarkoSys();
-  	void Update();
+  	void Update(int data[]);
   private:
   	VibeMotor * motors;
 };
