@@ -14,7 +14,7 @@ VibeMotor::VibeMotor(int pin, long on, long off)
 	previousMillis = 0;
 }
 
-void VibeMotor::Update(int dist)
+void VibeMotor::Update(float dist)
 {
 	/*unsigned long currentMillis = millis();
 
@@ -31,7 +31,7 @@ void VibeMotor::Update(int dist)
 		analogWrite(vibPin, vibState);
 	}*/
   Tlc.clear();
-  vibVal = map(dist, 0, 100, 0, 4095);// Assuming value sent from unity is between 0-100
+  vibVal = map(dist, 0, 6, 0, 4095);// Assuming value sent from unity is between 0-100
   Serial.println(vibVal);
   Tlc.set(vibPin,vibVal);
   Tlc.update();

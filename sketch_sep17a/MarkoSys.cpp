@@ -12,13 +12,13 @@ MarkoSys::MarkoSys()
                     new VibeMotor(10, 0, 0), new VibeMotor(11, 0, 0)};*/
  }
 
-void MarkoSys::Update(int data[])
+void MarkoSys::Update(float data[])
 {
-  Serial.println("MarkoSys Update Function");
+  //Serial.println("MarkoSys Update Function");
 	for(int i = 0; i < sizeof(motors) - 1; i++)
 	{
-    Serial.print("For Vibe Motor ");
-    Serial.println(i);
+    //Serial.print("For Vibe Motor ");
+    //Serial.println(i);
 		motors[i].Update(data[i]);
 	}
 }

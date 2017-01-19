@@ -6,7 +6,7 @@ class VibeMotor
 {
   public:
     VibeMotor(int pin, long on, long off);
-    void Update(int dist);
+    void Update(float dist);
 
   private:
     int vibPin;

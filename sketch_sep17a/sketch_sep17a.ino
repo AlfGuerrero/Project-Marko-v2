@@ -13,7 +13,7 @@ SoftwareSerial mySerial(2, 3);
 String rString;
 bool isReading = false;
 int arrayCount = 0;
-String fbArray[8];
+float fbArray[8];
 byte index = 0; // Index into array; where to store the character
 
 // -------- Vib code
@@ -42,12 +42,18 @@ void loop()
   char inChar = -1; // Where to store the character read
   String fullStr;
   byte index = 0; // Index into array; where to store the character
-
+  
   if (index < 5)
   {
     
     while (mySerial.available() > 0)
     {        
+      String rawData[8];
+      for(int i = 0; i < sizeof(fbArray) - 1; i++)
+      {
+        fbArray[i] = 0.0;
+      }
+      
         if(isReading == false){
           char c = (char)mySerial.read();  //gets one byte from serial buffer
     
@@ -57,7 +63,9 @@ void loop()
               Serial.println(c);
 
                for(int i=0; i<8; i++){
-                fbArray[i] = "";
+                fbArray[i] = rawData[i].toFloat();
+                rawData[i] = "";
+                
                }
             }
         }
@@ -65,7 +73,7 @@ void loop()
           char c = mySerial.read();  //gets one byte from serial buffer
     
           if (c == ',') {
-            Serial.println("delimeter "+ fbArray[arrayCount]);  
+            Serial.println("delimeter "+ rawData[arrayCount]);  
             arrayCount++;
             if(arrayCount >= 8){
               isReading = false;
@@ -74,12 +82,13 @@ void loop()
 
           }  
           else {     
-            fbArray[arrayCount] += c; //makes the string readString
+            rawData[arrayCount] += c; //makes the string readString
           } 
        }
      }
+     
   }
-  
+  Serial.println(fbArray[0]);
   systemManager->Update(fbArray);
   
 
