@@ -30,15 +30,19 @@ void setup() {
   i = 4095;
   mySerial.begin(9600);
   Serial.begin(9600);
-  Serial.write("Power On");
-  pinMode(13,OUTPUT);
+  Serial.println("Power On");
+  //pinMode(13,OUTPUT);
   systemManager = new MarkoSys();
+  for(int i = 0; i < 8; i++)
+      {
+        fbArray[i] = 0.0;
+      }
 }
 
 void loop() 
 { 
 
-  char inData[6]; // Allocate some space for the string
+  /*char inData[6]; // Allocate some space for the string
   char inChar = -1; // Where to store the character read
   String fullStr;
   byte index = 0; // Index into array; where to store the character
@@ -87,8 +91,11 @@ void loop()
        }
      }
      
-  }
-  Serial.println(fbArray[0]);
+  }*/
+ /* for(int i = 0; i < 8; i++)
+      {
+    Serial.println((String)i +": "+ (String)fbArray[i]);
+      }*/
   systemManager->Update(fbArray);
   
 

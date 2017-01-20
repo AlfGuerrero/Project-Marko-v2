@@ -32,7 +32,7 @@ void VibeMotor::Update(float dist)
 	}*/
   Tlc.clear();
   vibVal = map(dist, 0, 6, 0, 4095);// Assuming value sent from unity is between 0-100
-  Serial.println(vibVal);
+  Serial.println(vibPin + ": "+vibVal);
   Tlc.set(vibPin,vibVal);
   Tlc.update();
 }
