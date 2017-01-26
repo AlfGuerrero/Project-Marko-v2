@@ -13,7 +13,7 @@ String rString;
 bool isReading = false;
 int arrayCount;
 float fbArray[8];
-float p_fbArray[8];
+int beltIndex[8] = {6, 0, 1, 2, 3, 4, 5, 15};
 byte index = 0; // Index into array; where to store the character
 
 // -------- Vib code
@@ -83,23 +83,29 @@ void loop()
 
   if (arrayCount == 0) {
 
-    for (int i = 1; i <= 8; i++) {
+    for (int i = 0; i < 8; i++) {
 
-      if ((0.00 < fbArray[i]) && (fbArray[i] < 4.00))
+      if (0.00 < fbArray[i]) {
+        Tlc.set(beltIndex[i], map(0, 0, 2, 0, 4095));
+      } else if (fbArray[i] < 4.00) {
+        Tlc.set(beltIndex[i], map(4, 0, 2, 0, 4095));
+      } else
       {
-        Tlc.set(6, map(fbArray[1], 0, 2, 0, 4095));
-        Tlc.set(0, map(fbArray[4], 0, 2, 0, 4095));
-        Tlc.set(1, map(fbArray[5], 0, 2, 0, 4095));
-        Tlc.set(2, map(fbArray[3], 0, 2, 0, 4095));
-        Tlc.set(3, map(fbArray[6], 0, 2, 0, 4095));
-        Tlc.set(4, map(fbArray[7], 0, 2, 0, 4095));
-        Tlc.set(5, map(fbArray[2], 0, 2, 0, 4095));
-        Tlc.set(15, map(fbArray[8], 0, 2, 0, 4095));
+        Tlc.set(beltIndex[i], map(fbArray[i], 0, 2, 0, 4095));
+        /*Tlc.set(0, map(fbArray[4], 0, 2, 0, 4095));
+          Tlc.set(1, map(fbArray[5], 0, 2, 0, 4095));
+          Tlc.set(2, map(fbArray[3], 0, 2, 0, 4095));
+          Tlc.set(3, map(fbArray[6], 0, 2, 0, 4095));
+          Tlc.set(4, map(fbArray[7], 0, 2, 0, 4095));
+          Tlc.set(5, map(fbArray[2], 0, 2, 0, 4095));
+          Tlc.set(15, map(fbArray[8], 0, 2, 0, 4095));*/
         Tlc.update();
         Serial.println("DATA " + (String)i + ": " + fbArray[i]);
       }
+
     }
-
-
   }
+
+
 }
+
