@@ -6,7 +6,7 @@
 #include "SoftwareSerial.h"
 
 
-// -------- Bluetooth connection
+// --------  connection
 SoftwareSerial mySerial(2, 3);
 String rawData;
 String rString;
