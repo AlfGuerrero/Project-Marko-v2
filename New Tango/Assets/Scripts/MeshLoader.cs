@@ -9,6 +9,7 @@ public class MeshLoader : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//GameObject.Find("BtConnector").GetComponent<BasicDemo>().connect();
 
 		//obj = (GameObject)Object.Instantiate (Resources.Load (meshName));
 		//obj.transform.localScale = new Vector3(100.0f, 100.0f, 100.0f);
@@ -19,7 +20,7 @@ public class MeshLoader : MonoBehaviour {
 			//t.gameObject.AddComponent <MeshCollider> ();
 		//}
 
-		//Debug.Log ("TEST");
+		Debug.Log ("Marcus");
 	}
 	
 	// Update is called once per frame
