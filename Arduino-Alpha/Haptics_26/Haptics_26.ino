@@ -85,10 +85,12 @@ void loop()
 
     for (int i = 0; i < 8; i++) {
 
-      if (0.00 < fbArray[i]) {
+      if (fbArray[i] < 0.00) {
         Tlc.set(beltIndex[i], map(0, 0, 2, 0, 4095));
-      } else if (fbArray[i] < 4.00) {
+        Serial.println("DATA " + (String)i + ": rounded");
+      } else if (fbArray[i] > 4.00) {
         Tlc.set(beltIndex[i], map(4, 0, 2, 0, 4095));
+        Serial.println("DATA " + (String)i + ": rounded");
       } else
       {
         Tlc.set(beltIndex[i], map(fbArray[i], 0, 2, 0, 4095));
@@ -99,9 +101,11 @@ void loop()
           Tlc.set(4, map(fbArray[7], 0, 2, 0, 4095));
           Tlc.set(5, map(fbArray[2], 0, 2, 0, 4095));
           Tlc.set(15, map(fbArray[8], 0, 2, 0, 4095));*/
-        Tlc.update();
-        Serial.println("DATA " + (String)i + ": " + fbArray[i]);
+ 
       }
+        Serial.println("DATA " + (String)i + ": " + fbArray[i]);
+              Tlc.update();
+
 
     }
   }
