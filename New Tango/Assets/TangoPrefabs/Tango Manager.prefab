@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -40,21 +41,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f51549b4778944861a78b99341a9c5db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_autoConnectToService: 1
   m_allowOutOfDateTangoAPI: 0
+  m_showPerformanceOptionsInInspector: 1
+  m_showEmulationOptionsInInspector: 0
   m_emulationEnvironment: {fileID: 4300002, guid: e80bac5c99a63412b8472d348c3a51ce,
     type: 3}
+  m_emulationEnvironmentTexture: {fileID: 0}
   m_doSlowEmulation: 1
   m_emulationVideoOverlaySimpleLighting: 1
+  m_emulatedAreaDescriptionStartOffset: {x: 0, y: 0, z: 0}
   m_enableMotionTracking: 1
-  m_enableDepth: 0
-  m_enableVideoOverlay: 0
   m_motionTrackingAutoReset: 1
+  m_enableAreaDescriptions: 0
+  m_areaDescriptionLearningMode: 0
+  m_enableDriftCorrection: 0
+  m_enableDepth: 1
   m_enableAreaLearning: 0
   m_enableADFLoading: 0
-  m_enableCloudADF: 0
-  m_useExperimentalVideoOverlay: 1
-  m_autoConnectToService: 1
-  m_cloudApiKey: 
+  m_enable3DReconstruction: 1
+  m_3drResolutionMeters: 0.1
+  m_3drGenerateColor: 0
+  m_3drGenerateNormal: 0
+  m_3drGenerateTexCoord: 1
+  m_3drSpaceClearing: 0
+  m_3drUseAreaDescriptionPose: 0
+  m_3drMinNumVertices: 20
+  m_3drUpdateMethod: 1
+  m_enableVideoOverlay: 1
+  m_videoOverlayUseTextureMethod: 1
+  m_videoOverlayUseYUVTextureIdMethod: 0
+  m_videoOverlayUseByteBufferMethod: 1
+  m_adjustScreenResolution: 0
+  m_targetResolution: 1080
+  m_allowOversizedScreenResolutions: 0
+  m_initialPointCloudMaxPoints: 0
 --- !u!114 &11476464
 MonoBehaviour:
   m_ObjectHideFlags: 1

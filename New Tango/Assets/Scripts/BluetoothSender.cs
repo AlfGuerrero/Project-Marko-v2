@@ -66,7 +66,7 @@ public class BluetoothSender : MonoBehaviour {
 				//toSend [i] = (i * 25).ToString();
 			//}
 			device.send (System.Text.Encoding.ASCII.GetBytes ("s"));//10 is our seperator Byte (sepration between packets)
-			for(int i=0;i<8;i++){
+			for(int i=0;i<GameObject.Find("Tango Manager").GetComponent<Vibration> ().vibLevel.Length;i++){
 				//device.send (System.Text.Encoding.ASCII.GetBytes ("1" + ","));//10 is our seperator Byte (sepration between packets)
 				//device.send (System.Text.Encoding.ASCII.GetBytes (""));//10 is our seperator Byte (sepration between packets)
 				//Debug.Log("THIS" + toSend[i].ToString());
