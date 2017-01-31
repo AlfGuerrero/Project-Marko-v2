@@ -99,6 +99,7 @@ public class AreaDescriptionPicker : MonoBehaviour, ITangoLifecycle
     public void StartGame(bool isNewAreaDescription)
     {
 		
+		//
         // The game has to be started with an Area Description.
         if (!isNewAreaDescription)
         {

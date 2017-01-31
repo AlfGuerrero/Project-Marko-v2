@@ -10,9 +10,17 @@ String rawData;
 String rString;
 bool isReading = false;
 int arrayCount;
+<<<<<<< HEAD
 //float fbArray[8];
 int p_fbArray[8];
 byte index = 0;
+=======
+float fbArray[8];
+int beltIndex[8] = {6, 0, 1, 2, 3, 4, 5, 15};
+byte index = 0; // Index into array; where to store the character
+
+// -------- Vib code
+>>>>>>> cd09e21104191734e9b48157857223921437382b
 float startTime;
 float i;
 int DUR = 4000;
@@ -61,6 +69,7 @@ void loop()
     mySerial.flush();
   }
 
+<<<<<<< HEAD
   if (arrayCount >= 8 && isReading == true) {
     //for (int i = 0; i < 8; i++) {
     //if ((0.00 < fbArray[i]) && (fbArray[i] < 2.00))
@@ -83,6 +92,37 @@ void loop()
     //}
     for (int i = 0; i < 8; i++) {
       Serial.println("DATA " + (String)i + ": " + p_fbArray[i]);
+=======
+  if (arrayCount == 0) {
+
+    for (int i = 0; i < 8; i++) {
+
+      if (fbArray[i] < 0.00) {
+        Tlc.set(beltIndex[i], map(0, 0, 2, 0, 4095));
+        Serial.println("DATA " + (String)i + ": rounded");
+      } else if (fbArray[i] > 4.00) {
+        Tlc.set(beltIndex[i], map(4, 0, 2, 0, 4095));
+        Serial.println("DATA " + (String)i + ": rounded");
+      } else
+      {
+        Tlc.set(beltIndex[i], map(fbArray[i], 0, 2, 0, 4095));
+        /*Tlc.set(0, map(fbArray[4], 0, 2, 0, 4095));
+          Tlc.set(1, map(fbArray[5], 0, 2, 0, 4095));
+          Tlc.set(2, map(fbArray[3], 0, 2, 0, 4095));
+          Tlc.set(3, map(fbArray[6], 0, 2, 0, 4095));
+          Tlc.set(4, map(fbArray[7], 0, 2, 0, 4095));
+          Tlc.set(5, map(fbArray[2], 0, 2, 0, 4095));
+          Tlc.set(15, map(fbArray[8], 0, 2, 0, 4095));*/
+ 
+      }
+        Serial.println("DATA " + (String)i + ": " + fbArray[i]);
+              Tlc.update();
+
+
+>>>>>>> cd09e21104191734e9b48157857223921437382b
     }
   }
+
+
 }
+
