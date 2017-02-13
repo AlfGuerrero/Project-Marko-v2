@@ -2,20 +2,20 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/RealTimeGuiController.cs">
     <Files>
-      <File FileName="Assets/TangoPrefabs/Shaders/TangoEnvironmentalLighting/EnvironmentalLightingStandard.shader" Line="1" Column="1" />
-      <File FileName="Assets/TangoSDK/Core/Scripts/TangoWrappers/AreaDescription.cs" Line="1" Column="1" />
-      <File FileName="Assets/TangoPrefabs/Scripts/TangoPointCloud.cs" Line="1" Column="1" />
-      <File FileName="Assets/TangoSDK/Examples/Common/Scripts/TangoDynamicMesh.cs" Line="1" Column="1" />
-      <File FileName="Assets/TangoSDK/Examples/ExperimentalMeshOcclusion/Scripts/MeshOcclusionUIController.cs" Line="332" Column="6" />
-      <File FileName="Assets/RealTimeGuiController.cs" Line="729" Column="46" />
-      <File FileName="Assets/TangoSDK/Examples/AugmentedReality/Scripts/ARGUIController.cs" Line="140" Column="1" />
-      <File FileName="Assets/TangoSDK/Examples/ExperimentalMeshOcclusion/Scripts/MeshOcclusionCameraDepthTexture.cs" Line="47" Column="1" />
+      <File FileName="Assets/RealTimeGuiController.cs" Line="307" Column="10" />
+      <File FileName="Assets/TangoSDK/Examples/AreaLearning/Scripts/RelocalizingOverlay.cs" Line="57" Column="21" />
+      <File FileName="Assets/TangoPrefabs/Scripts/TangoPointCloud.cs" Line="34" Column="11" />
+      <File FileName="Assets/Scripts/Vibration.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/rayCasting.cs" Line="70" Column="9" />
+      <File FileName="Assets/TangoSDK/Examples/ExperimentalMeshOcclusion/Scripts/MeshOcclusionCameraDepthTexture.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MeshLoader.cs" Line="23" Column="8" />
+      <File FileName="Assets/Scripts/BluetoothSender.cs" Line="72" Column="12" />
+      <File FileName="Assets/TangoSDK/Examples/ExperimentalMeshOcclusion/Scripts/MeshOcclusionUIController.cs" Line="369" Column="22" />
+      <File FileName="Assets/TangoSDK/Examples/ExperimentalMeshOcclusion/Scripts/MeshOcclusionAreaDescriptionListElement.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <RunToCursorBreakpoint file="/Users/travisswan/Documents/GitRepo/Project-Marko-v2/New Tango/Assets/RealTimeGuiController.cs" line="331" column="2" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

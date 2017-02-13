@@ -408,14 +408,38 @@ public class RealTimeGuiController : MonoBehaviour, ITangoLifecycle, ITangoPose
 		m_meshBuildPanel.SetActive(false);
 		m_meshInteractionPanel.SetActive(true);
 
+
+		/////
+		// Update Tango space Area Description list.
+		string t_name = "";
+		AreaDescription[] areaDescriptionList = AreaDescription.GetList();
+
+		if (areaDescriptionList == null)
+		{
+			Debug.Log("None");
+			return;
+		}
+
+		Debug.Log("Looping for checking file names");
+		foreach (AreaDescription areaDescription in areaDescriptionList)
+		{
+			// Check if there is an associated Area Description mesh.
+
+			t_name = (areaDescription.m_uuid == m_savedUUID) ? areaDescription.GetMetadata().m_name : "";
+
+		}
+
+		/////
 		// Load mesh.
-		AreaDescriptionMesh mesh = _DeserializeAreaDescriptionMesh(m_savedUUID);
+		AreaDescriptionMesh mesh = (!File.Exists(m_meshSavePath + "/" + m_savedUUID)) ? _UnityMeshToAreaDescriptionMesh(m_savedUUID,Resources.Load(t_name) as Mesh) : _DeserializeAreaDescriptionMesh(m_savedUUID);
 		if (mesh == null)
 		{
 			return;
 		}
 
 		// Create GameObject container with mesh components for the loaded mesh.
+
+		////IMPORTANT!!!
 		m_meshFromFile = new GameObject();
 		MeshFilter mf = m_meshFromFile.AddComponent<MeshFilter>();
 		mf.mesh = _AreaDescriptionMeshToUnityMesh(mesh);
@@ -551,7 +575,9 @@ public class RealTimeGuiController : MonoBehaviour, ITangoLifecycle, ITangoPose
 			listElement.m_areaDescriptionUUID.text = areaDescription.m_uuid;
 
 			// Check if there is an associated Area Description mesh.
-			bool hasMeshData = File.Exists(m_meshSavePath + "/" + areaDescription.m_uuid) ? true : false;
+			Debug.Log("Area Description list contains: " + areaDescription.GetMetadata().m_name);
+			bool hasMeshData = File.Exists(m_meshSavePath + "/" + areaDescription.m_uuid) ? true : (File.Exists("Resources/" + areaDescription.GetMetadata().m_name) ? true : false);
+			//
 			listElement.m_hasMeshData.gameObject.SetActive(hasMeshData);
 
 			// Ensure the lambda makes a copy of areaDescription.
@@ -575,6 +601,12 @@ public class RealTimeGuiController : MonoBehaviour, ITangoLifecycle, ITangoPose
 			if (File.Exists(m_meshSavePath + "/" + item.m_uuid))
 			{
 				m_startGameButton.interactable = true;
+			}
+			else if (File.Exists("Resources/" + item.GetMetadata().m_name))
+			{
+				m_startGameButton.interactable = true;
+				m_savedUUID = item.GetMetadata ().m_name;
+				Debug.Log ("saved UUID: " + m_savedUUID);
 			}
 			else
 			{
