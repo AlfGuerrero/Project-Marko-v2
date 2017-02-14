@@ -72,6 +72,14 @@ public class AreaDescriptionPicker : MonoBehaviour, ITangoLifecycle
     /// </summary>
     public GameObject m_gameControlPanel;
 
+	/// <summary>
+	/// Testing panel game object.
+	/// 
+	/// The panel will be enabled when the test is selecting.
+	/// </summary>
+	public GameObject m_testingPanel;
+
+
     /// <summary>
     /// The GUI controller.
     /// 
@@ -276,5 +284,19 @@ public class AreaDescriptionPicker : MonoBehaviour, ITangoLifecycle
 
 	void onGUI(){
 		GUI.Label(new Rect(10, 10, 100, 20), m_guiController.m_curAreaDescription.GetMetadata ().m_name);
+	}
+
+
+	/// Go to testing UI
+	/// 
+	/// 
+	/// 
+	public void startAlphaTesting()
+	{
+		AndroidHelper.ShowAndroidToastMessage("Pressed Test.");
+		gameObject.SetActive(false);
+		GameObject.Find("BtConnector").GetComponent<BluetoothSender>().connect();
+		m_testingPanel.SetActive(true);
+
 	}
 }
