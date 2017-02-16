@@ -19,6 +19,7 @@ public class testUIController :  MonoBehaviour, ITangoLifecycle
 	public Text VibratorStatus;
 	public Text HeightStatus;
 	public Text DropOffStatus;
+	public bool m_isTesting = false;
 
 	// Use this for initialization
 	void Start () {
@@ -108,7 +109,7 @@ public class testUIController :  MonoBehaviour, ITangoLifecycle
 	{
 		ResetVibrationValues ();
 		AndroidHelper.ShowAndroidToastMessage("Pressed Distance.");
-		m_TangoManager.GetComponent<Vibration> ().vibLevel [Random.Range(0,7)] = Random.Range(0f,5f);
+		m_TangoManager.GetComponent<Vibration> ().vibLevel [Random.Range(0,7)] = Random.Range(0f,2f);
 	}
 
 	public void ResetVibrationValues()
@@ -123,5 +124,6 @@ public class testUIController :  MonoBehaviour, ITangoLifecycle
 		AndroidHelper.ShowAndroidToastMessage("Pressed Back.");
 		gameObject.SetActive(false);
 		m_areaDescriptionPickerPanel.SetActive(true);
+		m_isTesting = false;
 	}
 }

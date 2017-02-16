@@ -297,6 +297,7 @@ public class AreaDescriptionPicker : MonoBehaviour, ITangoLifecycle
 		gameObject.SetActive(false);
 		GameObject.Find("BtConnector").GetComponent<BluetoothSender>().connect();
 		m_testingPanel.SetActive(true);
+		m_testingPanel.GetComponent<testUIController> ().m_isTesting = true;
 
 	}
 }
