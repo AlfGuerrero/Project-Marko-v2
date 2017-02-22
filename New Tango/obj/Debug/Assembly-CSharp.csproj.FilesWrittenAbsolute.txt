@@ -15,20 +15,3 @@
 /Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/New Tango/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/New Tango/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/AlfrancisStudent/Documents/Senior Project/tango-examples-unity-master/New Tango/Temp/bin/Debug/Mono.Cecil.Mdb.dll
-/Users/travisswan/Documents/GitRepo/Project-Marko-v2/New Tango/Temp/bin/Debug/Assembly-CSharp.dll.mdb
-/Users/travisswan/Documents/GitRepo/Project-Marko-v2/New Tango/Temp/bin/Debug/Assembly-CSharp.dll
-/Users/travisswan/Documents/GitRepo/Project-Marko-v2/New Tango/obj/Debug/Assembly-CSharp.dll
-/Users/travisswan/Documents/GitRepo/Project-Marko-v2/New Tango/obj/Debug/Assembly-CSharp.dll.mdb
-/Users/travisswan/Documents/GitRepo/Project-Marko-v2/New Tango/Temp/bin/Debug/UnityEngine.dll
-/Users/travisswan/Documents/GitRepo/Project-Marko-v2/New Tango/Temp/bin/Debug/UnityEditor.dll
-/Users/travisswan/Documents/GitRepo/Project-Marko-v2/New Tango/Temp/bin/Debug/UnityEngine.UI.dll
-/Users/travisswan/Documents/GitRepo/Project-Marko-v2/New Tango/Temp/bin/Debug/UnityEngine.Networking.dll
-/Users/travisswan/Documents/GitRepo/Project-Marko-v2/New Tango/Temp/bin/Debug/Mono.Cecil.dll
-/Users/travisswan/Documents/GitRepo/Project-Marko-v2/New Tango/Temp/bin/Debug/Unity.SerializationLogic.dll
-/Users/travisswan/Documents/GitRepo/Project-Marko-v2/New Tango/Temp/bin/Debug/Unity.DataContract.dll
-/Users/travisswan/Documents/GitRepo/Project-Marko-v2/New Tango/Temp/bin/Debug/ICSharpCode.NRefactory.dll
-/Users/travisswan/Documents/GitRepo/Project-Marko-v2/New Tango/Temp/bin/Debug/Unity.UNetWeaver.dll
-/Users/travisswan/Documents/GitRepo/Project-Marko-v2/New Tango/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
-/Users/travisswan/Documents/GitRepo/Project-Marko-v2/New Tango/Temp/bin/Debug/Unity.CecilTools.dll
-/Users/travisswan/Documents/GitRepo/Project-Marko-v2/New Tango/Temp/bin/Debug/Mono.Cecil.Pdb.dll
-/Users/travisswan/Documents/GitRepo/Project-Marko-v2/New Tango/Temp/bin/Debug/Mono.Cecil.Mdb.dll
