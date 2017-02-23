@@ -1,7 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/RealTimeGuiController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\rayCasting.cs">
     <Files>
+<<<<<<< HEAD
       <File FileName="Assets/Scripts/MeshLoader.cs" Line="23" Column="5" />
       <File FileName="Assets/RealTimeGuiController.cs" Line="609" Column="7" />
       <File FileName="Assets/TangoSDK/Examples/AreaLearning/Scripts/RelocalizingOverlay.cs" Line="1" Column="1" />
@@ -12,6 +13,17 @@
       <File FileName="Assets/TangoSDK/Examples/ExperimentalMeshOcclusion/Scripts/MeshOcclusionAreaDescriptionListElement.cs" Line="1" Column="1" />
       <File FileName="Assets/TangoPrefabs/Scripts/TangoGestureCamera.cs" Line="1" Column="1" />
       <File FileName="Assets/TangoSDK/Examples/AreaLearning/Scripts/AreaDescriptionPicker.cs" Line="132" Column="4" />
+=======
+      <File FileName="Assets\TangoSDK\Examples\AugmentedReality\Scripts\ARMarker.cs" Line="1" Column="1" />
+      <File FileName="Assets\TangoSDK\Examples\AugmentedReality\Scripts\ARGUIController.cs" Line="1" Column="1" />
+      <File FileName="Assets\AreaLearningStartup.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\rayCasting.cs" Line="28" Column="56" />
+      <File FileName="Assets\Scripts\MeshLoader.cs" Line="1" Column="1" />
+      <File FileName="Assets\TangoSDK\Core\Scripts\TangoWrappers\AreaDescription.cs" Line="1" Column="1" />
+      <File FileName="Assets\TangoSDK\Examples\AreaLearning\Scripts\AreaLearningInGameController.cs" Line="1" Column="1" />
+      <File FileName="Assets\TangoSDK\Examples\AreaLearning\Scripts\AreaDescriptionPicker.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\AdfRecord.cs" Line="1" Column="1" />
+>>>>>>> parent of 9fb91a4... realtime mesh and adf generation with collision detection
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
