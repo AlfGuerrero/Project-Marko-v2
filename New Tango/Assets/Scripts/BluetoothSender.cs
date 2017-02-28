@@ -10,7 +10,7 @@ public class BluetoothSender : MonoBehaviour {
 	public Text statusText;
 	int counter = 10;
 	public Text count;
-
+	float timer = 0.1f;
 	//public string[] toSend = new string[8];
 
 	// Use this for initialization
@@ -60,27 +60,46 @@ public class BluetoothSender : MonoBehaviour {
 
 	// Update is called once per frame
 	public void Update () {
-		if (device != null) {
-			//device.send ((byte)counter);
-			//for (int i = 0; i < toSend.Length; i++) {
+		if (timer <= 0.0f) {
+			if (device != null) {
+				//device.send ((byte)counter);
+				//for (int i = 0; i < toSend.Length; i++) {
 				//toSend [i] = (i * 25).ToString();
-			//}
-			device.send (System.Text.Encoding.ASCII.GetBytes ("s"));//10 is our seperator Byte (sepration between packets)
-			for(int i=0;i<8;i++){
-				//device.send (System.Text.Encoding.ASCII.GetBytes ("1" + ","));//10 is our seperator Byte (sepration between packets)
-				//device.send (System.Text.Encoding.ASCII.GetBytes (""));//10 is our seperator Byte (sepration between packets)
-				//Debug.Log("THIS" + toSend[i].ToString());
-				//Vibration test2 = GetComponent<Vibration> ();
-				string test = GameObject.Find("Tango Manager").GetComponent<Vibration> ().vibLevel[i].ToString();
-				Debug.Log (test);
-				//GameObject.Find("BTConnector").GetComponent<BluetoothSender>().
-				device.send (System.Text.Encoding.ASCII.GetBytes (test));//10 is our seperator Byte (sepration between packets)
-				device.send (System.Text.Encoding.ASCII.GetBytes (","));//10 is our seperator Byte (sepration between packets)
+				//}
+				//if(
+					
+				device.send (System.Text.Encoding.ASCII.GetBytes ("s"));//10 is our seperator Byte (sepration between packets)
+				for (int i = 0; i < 8; i++) {
+					//device.send (System.Text.Encoding.ASCII.GetBytes ("1" + ","));//10 is our seperator Byte (sepration between packets)
+					//device.send (System.Text.Encoding.ASCII.GetBytes (""));//10 is our seperator Byte (sepration between packets)
+					//Debug.Log("THIS" + toSend[i].ToString());
+					//Vibration test2 = GetComponent<Vibration> ();
+					float test = GameObject.Find ("Tango Manager").GetComponent<Vibration> ().vibLevel [i];
+					Debug.Log (test);
+					if(test <= 1f){
+					//GameObject.Find("BTConnector").GetComponent<BluetoothSender>().
+						device.send (System.Text.Encoding.ASCII.GetBytes ("0"));//10 is our seperator Byte (sepration between packets)
+					} /*else if(test <= 1.75f){
+						//GameObject.Find("BTConnector").GetComponent<BluetoothSender>().
+						device.send (System.Text.Encoding.ASCII.GetBytes ("1"));//10 is our seperator Byte (sepration between packets)
+					} else if(test <= 2.5f){
+						//GameObject.Find("BTConnector").GetComponent<BluetoothSender>().
+						device.send (System.Text.Encoding.ASCII.GetBytes ("2"));//10 is our seperator Byte (sepration between packets)
+					} else{
+						//GameObject.Find("BTConnector").GetComponent<BluetoothSender>().
+						device.send (System.Text.Encoding.ASCII.GetBytes ("4"));//10 is our seperator Byte (sepration between packets)
+					}*/
 
-				//device.send (System.Text.Encoding.ASCII.GetBytes ("74" + ","));//10 is our seperator Byte (sepration between packets)
-				//device.send (System.Text.Encoding.ASCII.GetBytes (""));//10 is our seperator Byte (sepration between packets)
+					GameObject.Find ("Tango Manager").GetComponent<Vibration> ().vibLevel [i] = 0.0f;
+					//device.send (System.Text.Encoding.ASCII.GetBytes (","));//10 is our seperator Byte (sepration between packets)
+
+					//device.send (System.Text.Encoding.ASCII.GetBytes ("74" + ","));//10 is our seperator Byte (sepration between packets)
+					//device.send (System.Text.Encoding.ASCII.GetBytes (""));//10 is our seperator Byte (sepration between packets)
+				}
 			}
+			timer = 0.1f;
 		}
+		timer -= Time.deltaTime;
 	}
 
 	//############### Reading Data  #####################

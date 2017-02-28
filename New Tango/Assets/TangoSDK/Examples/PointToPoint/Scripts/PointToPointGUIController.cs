@@ -190,7 +190,7 @@ public class PointToPointGUIController : MonoBehaviour, ITangoDepth
             TangoEnums.TangoDepthCameraRate.DISABLED);
 
         Camera cam = Camera.main;
-        int pointIndex = m_pointCloud.FindClosestPoint(cam, touchPosition, 10);
+		int pointIndex = (int)m_pointCloud.FindClosestPoint(cam, touchPosition, 10);
 
         if (pointIndex > -1)
         {

@@ -56,7 +56,7 @@ public class AreaDescriptionPicker : MonoBehaviour, ITangoLifecycle
     /// 
     /// Learning Mode allows the loaded Area Description to be extended with more knowledge about the area..
     /// </summary>
-    public Toggle m_enableLearningToggle;
+   // public Toggle m_enableLearningToggle;
 
     /// <summary>
     /// The reference of the TangoDeltaPoseController object.
@@ -71,6 +71,10 @@ public class AreaDescriptionPicker : MonoBehaviour, ITangoLifecycle
     /// The panel will be enabled when the game starts.
     /// </summary>
     public GameObject m_gameControlPanel;
+
+	//point cloud & point cloud camera
+	public GameObject m_pointCloud;
+	public GameObject m_deltaCam;
 
     /// <summary>
     /// The GUI controller.
@@ -121,7 +125,7 @@ public class AreaDescriptionPicker : MonoBehaviour, ITangoLifecycle
         {
             // Completely new area description.
             m_guiController.m_curAreaDescription = null;
-            m_tangoApplication.m_areaDescriptionLearningMode = true;
+           // m_tangoApplication.m_areaDescriptionLearningMode = true;
 
         }
         else
@@ -129,11 +133,11 @@ public class AreaDescriptionPicker : MonoBehaviour, ITangoLifecycle
             // Load up an existing Area Description.
             AreaDescription areaDescription = AreaDescription.ForUUID(m_curAreaDescriptionUUID);
 			//if (GameObject.FindGameObjectWithTag ("TangoManager").GetComponent<MeshLoader> ().meshName == "Nothing") {
-			GameObject.Find("Tango Manager").GetComponent<MeshLoader> ().meshName = areaDescription.GetMetadata().m_name;
+			//GameObject.Find("Tango Manager").GetComponent<MeshLoader> ().meshName = areaDescription.GetMetadata().m_name;
 			//}
 
             m_guiController.m_curAreaDescription = areaDescription;
-            m_tangoApplication.m_areaDescriptionLearningMode = m_enableLearningToggle.isOn;
+            //m_tangoApplication.m_areaDescriptionLearningMode = m_enableLearningToggle.isOn;
 
 
 
@@ -149,6 +153,8 @@ public class AreaDescriptionPicker : MonoBehaviour, ITangoLifecycle
         m_poseController.gameObject.SetActive(true);
         m_guiController.enabled = true;
         m_gameControlPanel.SetActive(true);
+		m_deltaCam.SetActive (true);
+		m_pointCloud.SetActive (true);
 
 
     }

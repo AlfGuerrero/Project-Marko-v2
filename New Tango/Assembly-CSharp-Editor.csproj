@@ -45,6 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BT_Library\Scripts\Editor\BtEditor.cs" />
+     <Compile Include="Assets\BT_Library\Scripts\Editor\BtEditorLib.cs" />
+     <Compile Include="Assets\BT_Library\Scripts\Editor\PluginsMerger.cs" />
      <Compile Include="Assets\TangoPrefabs\Editor\TangoArPoseControllerInspector.cs" />
      <Compile Include="Assets\TangoPrefabs\Editor\TangoArScreenInspector.cs" />
      <Compile Include="Assets\TangoPrefabs\Editor\TangoDeltaPoseControllerInspector.cs" />
@@ -55,26 +58,37 @@
      <Compile Include="Assets\TangoSDK\Editor\TangoMenu.cs" />
      <Compile Include="Assets\TangoSDK\Editor\TangoSDKAbout.cs" />
      <Compile Include="Assets\TangoSDK\Examples\Common\Scripts\Editor\TangoDynamicMeshInspector.cs" />
+     <None Include="Assets\BT_Library\Arduino_Basic_Test\Read me.txt" />
      <None Include="Assets\TangoSDK\Examples\ExperimentalMeshOcclusion\Shaders\ZTestBlur.shader" />
      <None Include="Assets\TangoPrefabs\Shaders\TangoEnvironmentalLighting\EnvironmentalLightingStandard.shader" />
      <None Include="Assets\TangoPrefabs\Shaders\PointCloud.shader" />
      <None Include="Assets\TangoSDK\Core\Shaders\RGB_ARScreen.shader" />
+     <None Include="Assets\BT_Library\Old Version\Older Version.txt" />
      <None Include="Assets\TangoPrefabs\Shaders\YUV2RGB.shader" />
      <None Include="Assets\TangoSDK\Core\Shaders\RGB2YUV_CbCr.shader" />
+     <None Include="Assets\BT_Library\Demos\Devices Discovery\ReadME.txt" />
+     <None Include="Assets\BT_Library\Demos\Bluetooth Terminal\ReadMe.txt" />
      <None Include="Assets\TangoPrefabs\Shaders\ARPostProcess.shader" />
      <None Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilderWithPhysics\Shader\UnlitColor.shader" />
      <None Include="Assets\TangoPrefabs\Shaders\TangoEnvironmentalLighting\EnvironmentalLightingSpecularBumped.shader" />
      <None Include="Assets\TangoPrefabs\Shaders\TangoEnvironmentalLighting\TangoEnvironmentalLighting.cginc" />
      <None Include="Assets\TangoSDK\Core\Shaders\DepthEmulation.shader" />
+     <None Include="Assets\BT_Library\Demos\Basic Demo\ReadMe.txt" />
      <None Include="Assets\TangoSDK\Core\Shaders\RGB2YUV_Y.shader" />
+     <None Include="Assets\BT_Library\Demos\Android2Android\ReadMe.txt" />
      <None Include="Assets\TangoSDK\Examples\ExperimentalMeshOcclusion\Shaders\OcclusionMesh.shader" />
      <None Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilderWithColor\Shaders\UnlitVertexColor.shader" />
+     <None Include="Assets\BT_Library\Demos\High Bit Rate Terminal\ReadMe.txt" />
      <None Include="Assets\TangoSDK\Examples\ExperimentalMeshOcclusion\Shaders\OcclusionMask.shader" />
      <None Include="Assets\TangoSDK\Core\Shaders\ColorCameraEmulation.shader" />
      <None Include="Assets\TangoPrefabs\Shaders\PointCloud_Occlusion.shader" />
      <None Include="Assets\TangoSDK\Examples\ExperimentalMeshOcclusion\Shaders\TangoOcclusion.cginc" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\BT_Library\Combining Plugins.txt" />
+     <None Include="Assets\BT_Library\Demos\Automatic Connection\ReadMe.txt" />
+     <None Include="Assets\BT_Library\NativeLibraries\Android\BT_Library_Bluetooth_Classic.jar.txt" />
      <None Include="Assets\TangoPrefabs\Shaders\TangoEnvironmentalLighting\EnvironmentalLightingDiffuse.shader" />
+     <None Include="Assets\BT_Library\Demos\ReadMe.txt" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity_5.4.1/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
