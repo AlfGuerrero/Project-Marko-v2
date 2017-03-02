@@ -33,254 +33,265 @@ using UnityEngine.UI;
 /// </summary>
 public class AreaDescriptionPicker : MonoBehaviour, ITangoLifecycle
 {
-    /// <summary>
-    /// The prefab of a standard button in the scrolling list.
-    /// </summary>
-    public GameObject m_listElement;
+	/// <summary>
+	/// The prefab of a standard button in the scrolling list.
+	/// </summary>
+	public GameObject m_listElement;
 
-    /// <summary>
-    /// The container panel of the Tango space Area Description scrolling list.
-    /// </summary>
-    public RectTransform m_listContentParent;
+	//for populating the current area description
+	//int popNumber = 0;
 
-    /// <summary>
-    /// Toggle group for the Area Description list.
-    /// 
-    /// You can only toggle one Area Description at a time. After we get the list of Area Description from Tango,
-    /// they are all added to this toggle group.
-    /// </summary>
-    public ToggleGroup m_toggleGroup;
+	/// <summary>
+	/// The container panel of the Tango space Area Description scrolling list.
+	/// </summary>
+	public RectTransform m_listContentParent;
 
-    /// <summary>
-    /// Enable learning mode toggle.
-    /// 
-    /// Learning Mode allows the loaded Area Description to be extended with more knowledge about the area..
-    /// </summary>
-   // public Toggle m_enableLearningToggle;
+	/// <summary>
+	/// Toggle group for the Area Description list.
+	/// 
+	/// You can only toggle one Area Description at a time. After we get the list of Area Description from Tango,
+	/// they are all added to this toggle group.
+	/// </summary>
+	public ToggleGroup m_toggleGroup;
 
-    /// <summary>
-    /// The reference of the TangoDeltaPoseController object.
-    /// 
-    /// TangoDeltaPoseController listens to pose updates and applies the correct pose to itself and its built-in camera.
-    /// </summary>
-    public TangoARPoseController m_poseController;
+	/// <summary>
+	/// Enable learning mode toggle.
+	/// 
+	/// Learning Mode allows the loaded Area Description to be extended with more knowledge about the area..
+	/// </summary>
+	// public Toggle m_enableLearningToggle;
 
-    /// <summary>
-    /// Control panel game object.
-    /// 
-    /// The panel will be enabled when the game starts.
-    /// </summary>
-    public GameObject m_gameControlPanel;
+	/// <summary>
+	/// The reference of the TangoDeltaPoseController object.
+	/// 
+	/// TangoDeltaPoseController listens to pose updates and applies the correct pose to itself and its built-in camera.
+	/// </summary>
+	public TangoARPoseController m_poseController;
+
+	/// <summary>
+	/// Control panel game object.
+	/// 
+	/// The panel will be enabled when the game starts.
+	/// </summary>
+	//public GameObject m_gameControlPanel;
 
 	//point cloud & point cloud camera
 	public GameObject m_pointCloud;
 	public GameObject m_deltaCam;
 
-    /// <summary>
-    /// The GUI controller.
-    /// 
-    /// GUI controller will be enabled when the game starts.
-    /// </summary>
-    public AreaLearningInGameController m_guiController;
+	/// <summary>
+	/// The GUI controller.
+	/// 
+	/// GUI controller will be enabled when the game starts.
+	/// </summary>
+	public AreaLearningInGameController m_guiController;
 
-    /// <summary>
-    /// A reference to TangoApplication instance.
-    /// </summary>
-    private TangoApplication m_tangoApplication;
+	/// <summary>
+	/// A reference to TangoApplication instance.
+	/// </summary>
+	private TangoApplication m_tangoApplication;
 
-    /// <summary>
-    /// The UUID of the selected Area Description.
-    /// </summary>
-    private string m_curAreaDescriptionUUID;
+	/// <summary>
+	/// The UUID of the selected Area Description.
+	/// </summary>
+	private string m_curAreaDescriptionUUID;
 
-    /// <summary>
-    /// Start the game.
-    /// 
-    /// This will start the service connection, and start pose estimation from Tango Service.
-    /// </summary>
-    /// <param name="isNewAreaDescription">If set to <c>true</c> game with start to learn a new Area 
-    /// Description.</param>
-    public void StartGame(bool isNewAreaDescription)
-    {
-		
+	/// <summary>
+	/// Start the game.
+	/// 
+	/// This will start the service connection, and start pose estimation from Tango Service.
+	/// </summary>
+	/// <param name="isNewAreaDescription">If set to <c>true</c> game with start to learn a new Area 
+	/// Description.</param>
+	public void StartGame(bool isNewAreaDescription)
+	{
+
 		//
-        // The game has to be started with an Area Description.
-        if (!isNewAreaDescription)
-        {
-            if (string.IsNullOrEmpty(m_curAreaDescriptionUUID))
-            {
-                AndroidHelper.ShowAndroidToastMessage("Please choose an Area Description.");
-                return;
-            }
-        }
-        else
-        {
-            m_curAreaDescriptionUUID = null;
-        }
+		// The game has to be started with an Area Description.
+		if (!isNewAreaDescription)
+		{
+			if (string.IsNullOrEmpty(m_curAreaDescriptionUUID))
+			{
+				AndroidHelper.ShowAndroidToastMessage("Please choose an Area Description.");
+				return;
+			}
+		}
+		else
+		{
+			m_curAreaDescriptionUUID = null;
+		}
 
-        // Dismiss Area Description list, footer and header UI panel.
-        gameObject.SetActive(false);
+		// Dismiss Area Description list, footer and header UI panel.
+		gameObject.SetActive(false);
 
-        if (isNewAreaDescription)
-        {
-            // Completely new area description.
-            m_guiController.m_curAreaDescription = null;
-           // m_tangoApplication.m_areaDescriptionLearningMode = true;
+		if (isNewAreaDescription)
+		{
+			// Completely new area description.
+			m_guiController.m_curAreaDescription = null;
+			// m_tangoApplication.m_areaDescriptionLearningMode = true;
 
-        }
-        else
-        {
-            // Load up an existing Area Description.
-            AreaDescription areaDescription = AreaDescription.ForUUID(m_curAreaDescriptionUUID);
+		}
+		else
+		{
+			// Load up an existing Area Description.
+			AreaDescription areaDescription = AreaDescription.ForUUID(m_curAreaDescriptionUUID);
 			//if (GameObject.FindGameObjectWithTag ("TangoManager").GetComponent<MeshLoader> ().meshName == "Nothing") {
 			//GameObject.Find("Tango Manager").GetComponent<MeshLoader> ().meshName = areaDescription.GetMetadata().m_name;
 			//}
 
-            m_guiController.m_curAreaDescription = areaDescription;
-            //m_tangoApplication.m_areaDescriptionLearningMode = m_enableLearningToggle.isOn;
+			m_guiController.m_curAreaDescription = areaDescription;
+			//m_tangoApplication.m_areaDescriptionLearningMode = m_enableLearningToggle.isOn;
 
 
 
 
-        }
+		}
 
 
 
 
-        m_tangoApplication.Startup(m_guiController.m_curAreaDescription);
+		m_tangoApplication.Startup(m_guiController.m_curAreaDescription);
 
-        // Enable GUI controller to allow user tap and interactive with the environment.
-        m_poseController.gameObject.SetActive(true);
-        m_guiController.enabled = true;
-        m_gameControlPanel.SetActive(true);
-		m_deltaCam.SetActive (true);
-		m_pointCloud.SetActive (true);
+		// Enable GUI controller to allow user tap and interactive with the environment.
+		m_poseController.gameObject.SetActive(true);
+		m_guiController.enabled = true;
+		// m_gameControlPanel.SetActive(true);
+		//m_deltaCam.SetActive (true);
+		//m_pointCloud.SetActive (true);
 
 
-    }
-
-    /// <summary>
-    /// Internal callback when a permissions event happens.
-    /// </summary>
-    /// <param name="permissionsGranted">If set to <c>true</c> permissions granted.</param>
-    public void OnTangoPermissions(bool permissionsGranted)
-    {
-        if (permissionsGranted)
-        {
-            _PopulateList();
-        }
-        else
-        {
-            AndroidHelper.ShowAndroidToastMessage("Motion Tracking and Area Learning Permissions Needed");
-            Application.Quit();
-        }
-    }
-    
-    /// <summary>
-    /// This is called when successfully connected to the Tango service.
-    /// </summary>
-    public void OnTangoServiceConnected()
-    {
-		
 	}
-    
-    /// <summary>
-    /// This is called when disconnected from the Tango service.
-    /// </summary>
-    public void OnTangoServiceDisconnected()
-    {
-    }
 
-    /// <summary>
-    /// Unity Start function.
-    /// 
-    /// This function is responsible for connecting callbacks, set up TangoApplication and initialize the data list.
-    /// </summary>
-    public void Start()
-    {
-        m_tangoApplication = FindObjectOfType<TangoApplication>();
-        
-        if (m_tangoApplication != null)
-        {
-            m_tangoApplication.Register(this);
-            if (AndroidHelper.IsTangoCorePresent())
-            {
-                m_tangoApplication.RequestPermissions();
-            }
-        }
-        else
-        {
-            Debug.Log("No Tango Manager found in scene.");
-        }
+	/// <summary>
+	/// Internal callback when a permissions event happens.
+	/// </summary>
+	/// <param name="permissionsGranted">If set to <c>true</c> permissions granted.</param>
+	public void OnTangoPermissions(bool permissionsGranted)
+	{
+		if (permissionsGranted)
+		{
+			_PopulateList();
+		}
+		else
+		{
+			AndroidHelper.ShowAndroidToastMessage("Motion Tracking and Area Learning Permissions Needed");
+			Application.Quit();
+		}
+	}
+
+	/// <summary>
+	/// This is called when successfully connected to the Tango service.
+	/// </summary>
+	public void OnTangoServiceConnected()
+	{
+
+	}
+
+	/// <summary>
+	/// This is called when disconnected from the Tango service.
+	/// </summary>
+	public void OnTangoServiceDisconnected()
+	{
+	}
+
+	/// <summary>
+	/// Unity Start function.
+	/// 
+	/// This function is responsible for connecting callbacks, set up TangoApplication and initialize the data list.
+	/// </summary>
+	public void Start()
+	{
+		m_tangoApplication = FindObjectOfType<TangoApplication>();
+
+		if (m_tangoApplication != null)
+		{
+			m_tangoApplication.Register(this);
+			if (AndroidHelper.IsTangoCorePresent())
+			{
+				m_tangoApplication.RequestPermissions();
+			}
+		}
+		else
+		{
+			Debug.Log("No Tango Manager found in scene.");
+		}
 
 
-    }
+	}
 
-    /// <summary>
-    /// Unity Update function.
-    /// 
-    /// Application will be closed when click the back button.
-    /// </summary>
-    public void Update()
-    {
-		
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-    }
+	/// <summary>
+	/// Unity Update function.
+	/// 
+	/// Application will be closed when click the back button.
+	/// </summary>
+	public void Update()
+	{
 
-    /// <summary>
-    /// Refresh the scrolling list's content for both list.
-    /// 
-    /// This function will query from the Tango API for the Tango space Area Description. Also, when it populates 
-    /// the scrolling list content, it will connect the delegate for each button in the list. The delegate is
-    /// responsible for the actual import/export  through the Tango API.
-    /// </summary>
-    private void _PopulateList()
-    {
-        foreach (Transform t in m_listContentParent.transform)
-        {
-            Destroy(t.gameObject);
-        }
+		if (Input.GetKey(KeyCode.Escape))
+		{
+			Application.Quit();
+		}
+	}
 
-        // Update Tango space Area Description list.
-        AreaDescription[] areaDescriptionList = AreaDescription.GetList();
+	/// <summary>
+	/// Refresh the scrolling list's content for both list.
+	/// 
+	/// This function will query from the Tango API for the Tango space Area Description. Also, when it populates 
+	/// the scrolling list content, it will connect the delegate for each button in the list. The delegate is
+	/// responsible for the actual import/export  through the Tango API.
+	/// </summary>
+	private void _PopulateList()
+	{
 
-        if (areaDescriptionList == null)
-        {
-            return;
-        }
+		foreach (Transform t in m_listContentParent.transform)
+		{
+			Destroy(t.gameObject);
+		}
 
-        foreach (AreaDescription areaDescription in areaDescriptionList)
-        {
-            GameObject newElement = Instantiate(m_listElement) as GameObject;
-            AreaDescriptionListElement listElement = newElement.GetComponent<AreaDescriptionListElement>();
-            listElement.m_toggle.group = m_toggleGroup;
-            listElement.m_areaDescriptionName.text = areaDescription.GetMetadata().m_name;
-            listElement.m_areaDescriptionUUID.text = areaDescription.m_uuid;
+		// Update Tango space Area Description list.
+		AreaDescription[] areaDescriptionList = AreaDescription.GetList();
 
-            // Ensure the lambda makes a copy of areaDescription.
-            AreaDescription lambdaParam = areaDescription;
-            listElement.m_toggle.onValueChanged.AddListener((value) => _OnToggleChanged(lambdaParam, value));
-            newElement.transform.SetParent(m_listContentParent.transform, false);
-        }
-    }
+		if (areaDescriptionList == null)
+		{
+			return;
+		}
 
-    /// <summary>
-    /// Callback function when toggle button is selected.
-    /// </summary>
-    /// <param name="item">Caller item object.</param>
-    /// <param name="value">Selected value of the toggle button.</param>
-    private void _OnToggleChanged(AreaDescription item, bool value)
-    {
-        if (value)
-        {
-            m_curAreaDescriptionUUID = item.m_uuid;
-        }
-    }
+
+
+		GameObject newElement = Instantiate(m_listElement) as GameObject;
+		AreaDescriptionListElement listElement = newElement.GetComponent<AreaDescriptionListElement>();
+		listElement.m_toggle.group = m_toggleGroup;
+		listElement.m_areaDescriptionName.text = areaDescriptionList[0].GetMetadata().m_name;
+		listElement.m_areaDescriptionUUID.text = areaDescriptionList[0].m_uuid;
+		//m_guiController.m_curAreaDescription = AreaDescription.ForUUID(areaDescriptionList[0].m_uuid);
+		//m_curAreaDescriptionUUID = areaDescriptionList[0].m_uuid;
+		//newElement.name = areaDescription.GetMetadata().m_name;
+		AndroidNativeFunctions.ShowToast(areaDescriptionList[0].GetMetadata().m_name);
+		AndroidNativeFunctions.ShowToast("Tap to load or swipe left or right to select another location");
+
+		// Ensure the lambda makes a copy of areaDescription.
+		AreaDescription lambdaParam = areaDescriptionList[0];
+		listElement.m_toggle.onValueChanged.AddListener((value) => _OnToggleChanged(lambdaParam, value));
+		newElement.transform.SetParent(m_listContentParent.transform, false);
+		//popNumber++;
+
+	}
+
+	/// <summary>
+	/// Callback function when toggle button is selected.
+	/// </summary>
+	/// <param name="item">Caller item object.</param>
+	/// <param name="value">Selected value of the toggle button.</param>
+	private void _OnToggleChanged(AreaDescription item, bool value)
+	{
+		if (value)
+		{
+			m_curAreaDescriptionUUID = item.m_uuid;
+			StartGame(false);
+		}
+	}
 
 	void onGUI(){
-		GUI.Label(new Rect(10, 10, 100, 20), m_guiController.m_curAreaDescription.GetMetadata ().m_name);
+		//GUI.Label(new Rect(10, 10, 100, 20), m_guiController.m_curAreaDescription.GetMetadata ().m_name);
 	}
 }

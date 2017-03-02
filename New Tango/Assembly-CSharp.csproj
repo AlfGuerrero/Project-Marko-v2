@@ -45,6 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AndroidNativeFunctions\Scripts\AndroidNativeFunctions.cs" />
+     <Compile Include="Assets\AndroidNativeFunctions\demo\AndroidNativeFunctionsExample.cs" />
+     <Compile Include="Assets\AndroidNativeFunctions\demo\nConsole.cs" />
      <Compile Include="Assets\AreaLearningStartup.cs" />
      <Compile Include="Assets\BT_Library\Demos\Android2Android\ServerClient.cs" />
      <Compile Include="Assets\BT_Library\Demos\Automatic Connection\AutoConnect.cs" />
@@ -167,6 +170,7 @@
      <None Include="Assets\TangoSDK\Core\Shaders\RGB2YUV_Y.shader" />
      <None Include="Assets\BT_Library\Demos\Android2Android\ReadMe.txt" />
      <None Include="Assets\TangoSDK\Examples\ExperimentalMeshOcclusion\Shaders\OcclusionMesh.shader" />
+     <None Include="Assets\AndroidNativeFunctions\Readme.txt" />
      <None Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilderWithColor\Shaders\UnlitVertexColor.shader" />
      <None Include="Assets\BT_Library\Demos\High Bit Rate Terminal\ReadMe.txt" />
      <None Include="Assets\TangoSDK\Examples\ExperimentalMeshOcclusion\Shaders\OcclusionMask.shader" />

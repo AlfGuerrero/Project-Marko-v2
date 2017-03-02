@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AndroidNativeFunctions\Editor\AndroidNativeFunctionsEditor.cs" />
      <Compile Include="Assets\BT_Library\Scripts\Editor\BtEditor.cs" />
      <Compile Include="Assets\BT_Library\Scripts\Editor\BtEditorLib.cs" />
      <Compile Include="Assets\BT_Library\Scripts\Editor\PluginsMerger.cs" />
@@ -77,6 +78,7 @@
      <None Include="Assets\TangoSDK\Core\Shaders\RGB2YUV_Y.shader" />
      <None Include="Assets\BT_Library\Demos\Android2Android\ReadMe.txt" />
      <None Include="Assets\TangoSDK\Examples\ExperimentalMeshOcclusion\Shaders\OcclusionMesh.shader" />
+     <None Include="Assets\AndroidNativeFunctions\Readme.txt" />
      <None Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilderWithColor\Shaders\UnlitVertexColor.shader" />
      <None Include="Assets\BT_Library\Demos\High Bit Rate Terminal\ReadMe.txt" />
      <None Include="Assets\TangoSDK\Examples\ExperimentalMeshOcclusion\Shaders\OcclusionMask.shader" />
@@ -128,10 +130,6 @@
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity_5.4.1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{855BB389-50FC-2E7D-4C87-88549C586C62}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
